@@ -35,25 +35,19 @@ module.exports = {
                 console.error(error)
             }
         } else if (interaction.isButton()) { // ** Buttons handler
-		const btnName = interaction.customId
+		      const btnName = interaction.customId
 	
-		const channel = interaction.member.voice.channel;
-		const player = createAudioPlayer();
-		const resource = createAudioResource(`./sounds/${btnName}.mp3`);
-		const connection = joinVoiceChannel({channelId: channel.id, guildId: interaction.guild.id, adapterCreator: interaction.guild.voiceAdapterCreator});
+	      	const channel = interaction.member.voice.channel;
+	      	const player = createAudioPlayer();
+		      const resource = createAudioResource(`./sounds/${btnName}.mp3`);
+		      const connection = joinVoiceChannel({channelId: channel.id, guildId: interaction.guild.id, adapterCreator: interaction.guild.voiceAdapterCreator});
 	
-		player.play(resource);
-		connection.subscribe(player);
+		      player.play(resource);
+		      connection.subscribe(player);
 
-		await interaction.deferReply({ ephemeral: true });
-		await interaction.deleteReply();
+		      await interaction.deferReply({ ephemeral: true });
+		      await interaction.deleteReply();
 
-            	/*player.addListener("stateChange", (oldOne, newOne) => {
-                	if (newOne.status == "idle") {
-                    	connection.destroy()
-                	}
-        	});*/
-
-	}
+	        }
     }
 };

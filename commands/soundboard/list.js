@@ -13,6 +13,9 @@ module.exports = {
 
         interaction.client.sounds.map(file => {
             soundListing.addFields({name: `${path.parse(file).name}`, value: `${file}`})
+
+
+            console.log(file)
         }) 
 
         await interaction.reply({embeds: [soundListing]})
