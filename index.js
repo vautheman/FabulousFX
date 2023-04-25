@@ -2,7 +2,6 @@ const {Client, GatewayIntentBits, Collection, Events, EmbedBuilder} = require("d
 const fs = require("fs");
 const path = require("path");
 require('dotenv').config();
-
 require("./deploy-commands")
 
 const client = new Client({
