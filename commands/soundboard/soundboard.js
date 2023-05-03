@@ -72,13 +72,21 @@ module.exports = {
 
 
     async autocomplete(interaction){
+       
         const focusedValue = interaction.options.getFocused();
         /* const choices = ['Popular Topics: Threads', 'Sharding: Getting started', 'Library: Voice Connections', 'Interactions: Replying to slash commands', 'Popular Topics: Embed preview']; */
-        const choices = interaction.client.sounds;
-        const filtered = choices.filter(choice => choice.startsWith(focusedValue));
+        const choices = Array.from(interaction.client.sounds)
+
+        const filtered = choices.filter(choice => choice[0].includes(focusedValue));
+        
+        // Découpe le tableau par 25 elements max
+        let options;
+        if(filtered.length > 25) { 
+          options = filtered.slice(0, 25)
+        } else options = filtered
 
         await interaction.respond(
-            filtered.map(choice => ({name: path.parse(choice).name, value: path.parse(choice).name})),
+            options.map(choice => ({name: choice[0], value: choice[1]})),
         );
     },
 

@@ -48,6 +48,8 @@ for (const file of soundsFiles) {
     client.sounds.set(path.parse(file).name, file)
 }
 
+console.log(client.sounds)
+
 /*  EVENTS  */
 
 const eventsPath = path.join(__dirname, 'events');
