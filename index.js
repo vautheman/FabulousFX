@@ -48,7 +48,7 @@ for (const file of soundsFiles) {
     client.sounds.set(path.parse(file).name, file)
 }
 
-console.log(client.sounds)
+// console.log(client.sounds)
 
 /*  EVENTS  */
 
