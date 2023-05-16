@@ -86,7 +86,7 @@ module.exports = {
         } else options = filtered
 
         await interaction.respond(
-            options.map(choice => ({name: choice[0], value: choice[1]})),
+            options.map(choice => ({name: choice[0], value: choice[0]})),
         );
     },
 
