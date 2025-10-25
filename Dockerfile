@@ -6,8 +6,7 @@ WORKDIR /usr/src/fabulousfx
 
 # Copie et installation des dépendances
 COPY package*.json ./
-RUN npm cache clean --force \
- && npm install --legacy-peer-deps --no-audit --no-fund
+RUN npm install
 
 COPY . /usr/src/fabulousfx
 
