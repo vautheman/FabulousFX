@@ -7,8 +7,6 @@ WORKDIR /usr/src/fabulousfx
 COPY package*.json ./
 RUN npm ci --only=production
 
-CMD mkdir -p sounds
-
 # Copie du code source
 COPY . .
 
