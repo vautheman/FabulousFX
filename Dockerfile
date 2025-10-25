@@ -9,7 +9,7 @@ COPY package*.json ./
 # Copie du code source
 COPY . .
 
-HEALTHCHECK --interval=30s --timeout=10s --retries=3 CMD node -e "process.exit(0)"
-
 # Lancement du bot
 CMD ["npm", "run", "start"]
+
+HEALTHCHECK NONE
