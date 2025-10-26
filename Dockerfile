@@ -16,4 +16,5 @@ COPY . .
 # Lancement du bot
 CMD ["npm", "run", "start"]
 
-HEALTHCHECK NONE
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD node -e "process.exit(0)"
