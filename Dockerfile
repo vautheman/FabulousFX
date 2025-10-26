@@ -4,6 +4,8 @@ FROM node:18.16
 RUN mkdir /usr/src/fabulousfx
 WORKDIR /usr/src/fabulousfx
 
+RUN mkdir ./sounds
+
 # Copie et installation des dépendances
 COPY package*.json ./
 RUN npm install
